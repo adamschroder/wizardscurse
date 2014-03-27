@@ -18,8 +18,7 @@ public class EnemyBarrier : MonoBehaviour {
 			countdown -= Time.deltaTime;
 			if(countdown <= 0) {
 				Debug.Log("in countdown");
-				// NEED TO GET RID OF HARD CODED DIRECTIONS
-				this.currentGameObject.GetComponent<EnemyBehavior>().dir = "left";
+				this.currentGameObject.GetComponent<EnemyBehavior>().changeDir = false;
 				timing = false;
 				this.currentGameObject = null;
 			}
@@ -29,9 +28,9 @@ public class EnemyBarrier : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collider) {
 
 		if (collider.gameObject.tag == "Enemy") {
-			collider.gameObject.GetComponent<EnemyBehavior>().dir = "right";
+			collider.gameObject.GetComponent<EnemyBehavior>().changeDir = true;
 			this.currentGameObject = collider.gameObject;
-			startTimer(3);
+			startTimer(2);
 		}
 	}
 

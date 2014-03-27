@@ -3,10 +3,9 @@ using System.Collections;
 
 public class PlayerCollision : MonoBehaviour {
 
-	private GameObject player;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("Player");
+
 	}
 	
 	// Update is called once per frame
@@ -25,6 +24,9 @@ public class PlayerCollision : MonoBehaviour {
 
 		if (collider.gameObject.tag == "Ground") {
 			GetComponent<PlayerController>().grounded = true;
+		}
+
+		if (collider.gameObject.tag == "SkeletonMinion") {
 		}
 	}
 }
